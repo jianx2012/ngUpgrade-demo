@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { UpgradeModule, downgradeComponent } from '@angular/upgrade/static';
 import { AppComponent } from './app.component';
 import { Ng2DemoComponent } from 'ng2/app/ng2-demo.component'
+import { phoneServiceProvider } from 'ng2/app/phone.service'
 declare var angular: any;
 angular.module('phonecatApp')
   .directive(
@@ -18,7 +19,9 @@ angular.module('phonecatApp')
     BrowserModule,
     UpgradeModule
   ],
-  providers: [],
+  providers: [
+    phoneServiceProvider,
+  ],
   // bootstrap: [AppComponent]
   entryComponents: [
     Ng2DemoComponent
